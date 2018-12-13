@@ -2,9 +2,11 @@
  * @author sunag / http://www.sunag.com.br/
  */
 
+import { Math } from './../../../../src/math/Math';
+
 function Node( type ) {
 
-	this.uuid = THREE.Math.generateUUID();
+	this.uuid = Math.generateUUID();
 
 	this.name = "";
 
