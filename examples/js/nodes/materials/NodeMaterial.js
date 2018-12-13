@@ -6,10 +6,11 @@ import { NodeBuilder } from '../core/NodeBuilder.js';
 import { ColorNode } from '../inputs/ColorNode.js';
 import { PositionNode } from '../accessors/PositionNode.js';
 import { RawNode } from './nodes/RawNode.js';
+import { ShaderMaterial } from './../../../../build/three.module.js';
 
 function NodeMaterial( vertex, fragment ) {
 
-	THREE.ShaderMaterial.call( this );
+	ShaderMaterial.call( this );
 
 	this.vertex = vertex || new RawNode( new PositionNode( PositionNode.PROJECTION ) );
 	this.fragment = fragment || new RawNode( new ColorNode( 0xFF0000 ) );
@@ -18,7 +19,7 @@ function NodeMaterial( vertex, fragment ) {
 
 }
 
-NodeMaterial.prototype = Object.create( THREE.ShaderMaterial.prototype );
+NodeMaterial.prototype = Object.create( ShaderMaterial.prototype );
 NodeMaterial.prototype.constructor = NodeMaterial;
 NodeMaterial.prototype.type = "NodeMaterial";
 
