@@ -4,13 +4,15 @@
 
 import { NodeMaterial } from '../materials/NodeMaterial.js';
 import { ScreenNode } from '../inputs/ScreenNode.js';
+import { Math } from './../../../../build/three.module.js';
+import { ShaderPass } from './../../postprocessing/ShaderPass';
 
 function NodePass() {
 
-	THREE.ShaderPass.call( this );
+	ShaderPass.call( this );
 
 	this.name = "";
-	this.uuid = THREE.Math.generateUUID();
+	this.uuid = Math.generateUUID();
 
 	this.userData = {};
 
@@ -24,7 +26,7 @@ function NodePass() {
 
 }
 
-NodePass.prototype = Object.create( THREE.ShaderPass.prototype );
+NodePass.prototype = Object.create( ShaderPass.prototype );
 NodePass.prototype.constructor = NodePass;
 
 NodePass.prototype.render = function () {
@@ -41,7 +43,7 @@ NodePass.prototype.render = function () {
 
 	this.uniforms = this.material.uniforms;
 
-	THREE.ShaderPass.prototype.render.apply( this, arguments );
+	ShaderPass.prototype.render.apply( this, arguments );
 
 };
 
